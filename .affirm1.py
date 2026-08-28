@@ -29,6 +29,5 @@ exit = True
 #main loop
 while exit:
   affirmations = open_affirmation()
-#  pick_affirmation(affirmations)
   exit = exit_affirmation()
 

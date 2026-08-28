@@ -1,42 +1,33 @@
-import os
-import random
+#Verision 1 of Daily Affirmation Script
+#This version opens up the affirmation.txt, picks one, and then prints the randomly picked one. 
 
-#opening affirmation
-def open_affirmation(affirmations):
-  affirmations = open('affirmations.txt', 'r')
-  for line in affirmtaion:
-    affirmations = affirmations.readline())
+
+
+
+#opens and returns affirmation list
+def open_affirmation():
+  affirmations_file = open('affirmations.txt', 'r')
+  affirmations = []
+  for line in affirmations_file:
+    clean_line =  line.strip()
+    affirmations.append(clean_line)
+  print(affirmations)
   return affirmations
 
-#AFFIRMATION
-def picking_affirmation(affirmations):
-  affirmation = affirmations.readline()
-  picked_affimation = random.choice(affirmation)
-  return picked_affirmation
-
-#EDIT LIST
-def edit_list_func(affirmations):
-  edit_affirmation = input("Would you like to (A)dd/(D)elete Affirmation List?: ").upper()
-  affirmation = open('affirmation.txt', 'a')
-  if edit_affirmation == 'A':
-    new_phrase = input()
-    print("Please enter affirmation: ")
-    affirmation.write(new_phrase)
-    print(affirmations.txt())
-    print('UPDATED!')
-    affirmation = close()
+#exits program
+def exit_affirmation():
+  choice = input('Would you like to e(X)it: ').upper()
+  if choice == 'E' or choice == 'X':
+    exit = False
+    return exit
   else:
-    print("ERROR EDIT_FUNC")
-  return
+    return print("ERROR")
+
+exit = True
 
 
-while True:
-  print("Here is your daily affirmation: ")
-  open_affirmation(affirmations)
-  print(picking_affirmation(affirmations))
+#main loop
+while exit:
+  affirmations = open_affirmation()
+  exit = exit_affirmation()
 
-  edit_list = input("Would you like to (E)dit the affirmations list?").upper()
-  if "E" == edit_list or 'e' == edit_list:
-    edit_list_func(affirmations)
-  else:
-    print("ERROR MAIN FUNC")
